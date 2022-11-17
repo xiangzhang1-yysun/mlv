@@ -1,0 +1,30 @@
+variable        T equal 850.0
+variable        seed equal 826626413
+
+units           metal
+atom_style	atomic
+boundary        p p p
+
+read_data        input.pos  # 0.lmp
+
+mass        1 63.546
+mass        2 78.96
+
+pair_style mlip mlip.ini 
+pair_coeff * *
+
+neighbor	0.5 bin
+neigh_modify    every 1 delay 5 check yes
+
+timestep	0.001
+
+fix		1 all nve
+fix		2 all langevin $T $T 0.1 ${seed} zero yes
+
+thermo_style    custom step temp 
+thermo 1000
+
+dump   1 all custom 1000 dump.nb id type x y z fx fy fz 
+
+run             10000
+reset_timestep  0

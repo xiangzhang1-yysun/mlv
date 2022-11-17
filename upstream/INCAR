@@ -1,0 +1,22 @@
+ISMEAR   = 0
+SIGMA    = 0.05
+NBANDS   = 476
+PREC     = Normal
+ENCUT    = 300.0
+EDIFF    = 1.0E-5
+LWAVE    = .FALSE.
+LCHARG   = .FALSE.
+LPLANE   = .TRUE.
+
+LREAL    = Auto
+
+# LDAU setup
+LDAU     = .TRUE.
+LDAUTYPE = 2
+LDAUL    = 2    -1
+LDAUU    = 7.0  0.0
+LDAUJ    = 0.0  0.0
+LMAXMIX  = 4
+
+NCORE = 20
+KPAR = 4
